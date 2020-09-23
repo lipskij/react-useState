@@ -2,20 +2,20 @@ import React, { useState } from "react";
 
 const Input = () => {
   const [name, setInput] = useState("");
-  const [istrue, Setistrue] = useState(false);
+  const [istrue, setIstrue] = useState(false);
 
-  function handleClick() {
-    Setistrue(true)
-  }
+  // function handleClick() {
+  //   return setIstrue(true)
+  // }
 
   return (
     <div>
       <form>
         <label>
-          Name:
+          Name
           <input type="text" placeholder="name" onChange={e => setInput(e.target.value)}/>
         </label>
-        <button type="submit" onClick={handleClick}>Click</button>
+        <button type="submit" onClick={(event) => {event.preventDefault(); setIstrue(true)}}>Click</button>
       </form>
       {istrue ? <p> Your name: {name}</p> : ""}
     </div>
