@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 
-const Input = () => {
+const Input = ({ addName }) => {
   const [name, setInput] = useState("");
   // make change only after button click
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addName(name);
+    setInput("");
+    
+  };
+
   return (
     <div>
-      <form>
-        <label>
-          Name
-          <input
-            type="text"
-            placeholder="Place your name"
-            onChange={e => setInput(e.target.value)}
-          />
-        </label>
-        <button
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            console.log("clicked");
-            setInput("")
-          }}
-        >
-          Click
-        </button>
+      <form onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input
+          type="text"
+          value={name}
+          placeholder="Place your name"
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <input type="submit" value="Add name" />
       </form>
-      <h2>Your name: {name}</h2>
     </div>
   );
 };
