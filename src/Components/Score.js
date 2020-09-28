@@ -5,12 +5,10 @@ const Score = () => {
   const [count, setCount] = useState(0);
   const [names, setNames] = useState([{ name: "hey", id: 0 }]);
 
-  function id(IDs) {
-    return IDs +1;
-  }
+  
 
   const addName = (name) => {
-    setNames([...names, { name, id: id(1) }]);
+    setNames([...names, { name, id: names }]);
   };
 
   return (
