@@ -1,11 +1,11 @@
 import React from "react";
-import Score from "./Components/Score";
 import "./App.css";
+import Counter from "./Components/Counter";
 
 function App() {
   return (
     <div className="App">
-      <Score />
+      <Counter />
     </div>
   );
 }
